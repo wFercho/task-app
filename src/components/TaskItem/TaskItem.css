@@ -1,0 +1,70 @@
+.TaskItem-container {
+    display: grid;
+    grid-template-columns: 0.5fr 3.5fr 2fr;
+    justify-items: center;
+    align-items: center;
+    height: 90px;
+    position: relative;    
+
+    background-color: #F5F5F5;
+    border-bottom: 1px solid #E9E9EB;
+    color:#6a6a6d;
+    font-size: 1.4rem;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+/*.TaskItem-container {
+    display: flex;
+    align-items: center;
+    height: 90px;
+    position: relative;
+
+    background-color: #F5F5F5;
+    border-bottom: 1px solid #E9E9EB;
+    color:#6a6a6d;
+    font-size: 1.4rem;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}*/
+
+.TaskItem-completed {
+    place-self: center end;
+    /*margin-left: 20px;*/
+    width: 1.6rem;
+    cursor: pointer;
+}
+
+.TaskItem-text {
+    place-self: center start;
+    padding-left: 20px;
+    /*margin-left: 20px;
+    width: 80%;*/
+}
+
+.TaskItem-time {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.TaskItem-btnDelete{
+    position: absolute;
+    width: 35px;
+    top: -10%;
+    left: 90%;
+
+    border-radius: 50%;
+    background-color: #F9696A;
+    color: white;
+    cursor: pointer;
+}
+
+.TaskItem-check{
+    text-decoration: line-through;
+}
+
+

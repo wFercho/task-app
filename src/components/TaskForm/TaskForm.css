@@ -1,0 +1,39 @@
+.TaskForm-container {
+    font-size: 1.6rem;
+    background-color: #fbfaff;
+    width: 300px;
+    height: 400px;
+    border-radius: 5px;
+    
+}
+.TaskForm-container form {
+    padding: 1.2rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.TaskForm-container form > textarea{
+    font-size: 1.7rem;
+    resize: none;
+    width: 90%;
+    height: 80%;
+    margin-top: 1.4rem;
+    padding: 0.5rem;
+    border: 1px solid rgb(138, 135, 135);
+    border-radius: 5px;
+}
+
+.TaskForm-container form > textarea:focus {
+    outline-color: #F9696A;
+}
+
+.TaskForm-container form > button{
+    width: 50%;
+    margin-top: 1rem;
+    color: white;
+    background-color: #F9696A;
+    border-radius: 5px;
+    cursor: pointer;
+}

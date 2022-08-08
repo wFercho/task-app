@@ -1,0 +1,35 @@
+.TaskSearch-container {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+
+    margin: 0 auto;
+    padding: 0% 10%;
+    padding-bottom: 5%;
+    
+}
+
+.TaskSearch-container input, button {
+    height: 35px;
+    border: 1px solid transparent;
+}
+
+.TaskSearch-container input {
+    padding-left: 20px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.TaskSearch-container input:focus {
+    outline-color: #F9696A;
+}
+
+
+.TaskSearch-container button {
+    background-color: #F9696A;
+    color: #FBFAFF;
+    cursor: pointer;
+
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
