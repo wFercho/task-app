@@ -1,11 +1,7 @@
-import { useContext } from "react";
-import { TasksContext } from "../TasksContext";
 import TaskItem from "../TaskItem/";
 import "./TasksList.css";
 
-export default function TasksList() {
-  const { searchedTasks, completeTask, deleteTask, loading, error } =
-    useContext(TasksContext);
+function TasksList({ searchedTasks, completeTask, deleteTask, loading, error }) {
   return (
     <div className="TaskList-container">
       {error && <p className="TaskList-message">Error al cargar las tareas</p>}
@@ -26,3 +22,5 @@ export default function TasksList() {
     </div>
   );
 }
+
+export {TasksList}

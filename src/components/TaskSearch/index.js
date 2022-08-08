@@ -1,10 +1,7 @@
-import { useContext } from "react";
-import { TasksContext } from "../TasksContext";
-
 import "./TaskSearch.css";
 
-export default function TaskSearch() {
-  const { searchValue, setSearchValue } = useContext(TasksContext);
+function TaskSearch({ searchValue, setSearchValue }) {
+  
   return (
     <div className="TaskSearch-container">
       <input
@@ -18,3 +15,5 @@ export default function TaskSearch() {
     </div>
   );
 }
+
+export {TaskSearch}

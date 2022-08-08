@@ -1,9 +1,7 @@
-import { createContext, useState } from "react";
 import { useLocalStorage } from "./useLocalStorage";
+import { useState } from "react";
 
-const TasksContext = createContext();
-
-function TasksProvider({ children }) {
+function useTasks() {
   const {
     item: tasks,
     saveItem: saveTasks,
@@ -12,7 +10,7 @@ function TasksProvider({ children }) {
   } = useLocalStorage("Tasks_v1", []);
 
   const [searchValue, setSearchValue] = useState("");
-  const [openModal, setOpenModal] = useState(false)
+  const [openModal, setOpenModal] = useState(false);
 
   const completed = tasks.filter((task) => !!task.completed).length;
   const totalTasks = tasks.length;
@@ -20,7 +18,7 @@ function TasksProvider({ children }) {
 
   let searchedTasks = [];
 
-  if (searchValue.length != 0) {
+  if (searchValue.length !== 0) {
     searchedTasks = tasks.filter((task) => {
       const taskText = task.text.toLocaleLowerCase();
       const searchText = searchValue.toLocaleLowerCase();
@@ -46,41 +44,37 @@ function TasksProvider({ children }) {
 
   const addTask = (text) => {
     const newTasks = [...tasks];
-    let date = new Date()
-    let hour = `${date.getHours()}:${date.getMinutes()}`
-    let fecha = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`
-    let task = {}
-  
-    task.id = date.toJSON()
-    task.hour = hour
-    task.date = fecha
-    task.completed = false
-    task.text = text
-    newTasks.push(task)
+    let date = new Date();
+    let hour = `${date.getHours()}:${date.getMinutes()}`;
+    let fecha = `${date.getDate()}/${
+      date.getMonth() + 1
+    }/${date.getFullYear()}`;
+    let task = {};
+
+    task.id = date.toJSON();
+    task.hour = hour;
+    task.date = fecha;
+    task.completed = false;
+    task.text = text;
+    newTasks.push(task);
     saveTasks(newTasks);
   };
 
-  return (
-    <TasksContext.Provider
-      value={{
-        completed,
-        inCompleted,
-        totalTasks,
-        searchValue,
-        setSearchValue,
-        searchedTasks,
-        completeTask,
-        deleteTask,
-        loading,
-        error,
-        openModal,
-        setOpenModal,
-        addTask
-      }}
-    >
-      {children}
-    </TasksContext.Provider>
-  );
+  return {
+    completed,
+    inCompleted,
+    totalTasks,
+    searchValue,
+    setSearchValue,
+    searchedTasks,
+    completeTask,
+    deleteTask,
+    loading,
+    error,
+    openModal,
+    setOpenModal,
+    addTask,
+  };
 }
 
-export { TasksContext, TasksProvider };
+export { useTasks };

@@ -1,9 +1,7 @@
-import { useContext, useState } from "react";
-import { TasksContext } from "../TasksContext";
 import "./TaskForm.css";
+import { useState } from "react";
 
-function TaskForm() {
-  const { addTask } = useContext(TasksContext);
+function TaskForm({ addTask }) {
   const [textArea, setTextArea] = useState("");
 
   const handleAddClick = (e) => {

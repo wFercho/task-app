@@ -1,11 +1,7 @@
-import { useContext } from 'react'
-import { TasksContext } from '../TasksContext'
-
 import './CreateTaskButton.css'
 
-export default function CreateTaskButton(){
+function CreateTaskButton({setOpenModal, openModal}){
 
-    const {setOpenModal, openModal} = useContext(TasksContext)
     const handleClick = () => {
         setOpenModal(!openModal)
     }
@@ -15,3 +11,5 @@ export default function CreateTaskButton(){
         </div>
     )
 }
+
+export {CreateTaskButton}
