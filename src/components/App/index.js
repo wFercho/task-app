@@ -13,7 +13,7 @@ import { TaskForm } from "../TaskForm";
 
 import "./App.css";
 import { EmptySearchResults } from "../EmptySearchResults";
-import { ChangeAlertWithStorageListener } from "../ChangeAlert";
+import { ChangeAlert } from "../ChangeAlert";
 
 function App() {
   const {
@@ -81,7 +81,7 @@ function App() {
           <TaskForm addTask={addTask} />
         </Modal>
       )}
-      <ChangeAlertWithStorageListener sincronize={sincronizeTasks}/>
+      <ChangeAlert sincronize={sincronizeTasks}/>
     </div>
   );
 }
