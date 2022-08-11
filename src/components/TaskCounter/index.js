@@ -1,10 +1,10 @@
 
 import './TaskCounter.css'
 
-function TaskCounter({completed, inCompleted, totalTasks}){
+function TaskCounter({completed, inCompleted, totalTasks, loading}){
     
     return(
-        <div className='TaskCounter-container'>
+        <div className={`${loading ? "disabled":"TaskCounter-container"}`}>
             <h2 className="TaskCounter-title">
                 Completas: {completed}/{totalTasks}
             </h2>

@@ -1,7 +1,7 @@
 .TaskSearch-container {
     list-style: none;
-    display: grid;
-    grid-template-columns: 4fr 1fr;
+    
+    
 
     margin: 0 auto;
     padding: 0% 10%;
@@ -15,6 +15,7 @@
 }
 
 .TaskSearch-container input {
+    width: 100%;
     padding-left: 20px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -25,6 +26,11 @@
 }
 
 
+.TaskSearch-container input:disabled {
+    display: none;
+}
+
+
 .TaskSearch-container button {
     background-color: #F9696A;
     color: #FBFAFF;
@@ -32,4 +38,11 @@
 
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+
+
+.TaskSearch-container .disable {
+    opacity: 25%;
+    background-color: #F9696A;
+
 }

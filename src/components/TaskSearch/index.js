@@ -1,6 +1,6 @@
 import "./TaskSearch.css";
 
-function TaskSearch({ searchValue, setSearchValue }) {
+function TaskSearch({ searchValue, setSearchValue, loading }) {
   
   return (
     <div className="TaskSearch-container">
@@ -10,8 +10,8 @@ function TaskSearch({ searchValue, setSearchValue }) {
           setSearchValue(e.target.value);
         }}
         value={searchValue}
+        disabled={loading}
       />
-      <button>Buscar</button>
     </div>
   );
 }

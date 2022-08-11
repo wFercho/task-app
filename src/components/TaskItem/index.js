@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./TaskItem.css";
 
-export default function TaskItem({ task, onComplete, onDelete }) {
+function TaskItem({ task, onComplete, onDelete }) {
   let { text, completed, date, hour } = task;
   const [isCompleted, setIsCompleted] = useState(completed);
   const handleCheckboxChange = () => {
@@ -29,3 +29,5 @@ export default function TaskItem({ task, onComplete, onDelete }) {
     </li>
   );
 }
+
+export {TaskItem}

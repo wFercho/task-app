@@ -1,26 +1,30 @@
 import TaskItem from "../TaskItem/";
 import "./TasksList.css";
 
-function TasksList({ searchedTasks, completeTask, deleteTask, loading, error }) {
+function TasksList({
+  render,
+  children,
+  onError,
+  onLoading,
+  onEmptyTasks,
+  onEmptySearchResults,
+  totalTasks,
+  searchedTasks,
+  loading,
+  error,
+}) {
+  //Para renderizar dependiendo si es, render prop o render function (children)
+  const renderFunc = render || children
   return (
-    <div className="TaskList-container">
-      {error && <p className="TaskList-message">Error al cargar las tareas</p>}
-      {loading && <p className="TaskList-message">Cargando las tareas...</p>}
-      {!loading && !searchedTasks.length && (
-        <p className="TaskList-message">No tienes tareas pendientes</p>
-      )}
-      <ul>
-        {searchedTasks.map((task) => (
-          <TaskItem
-            key={task.id}
-            task={task}
-            onComplete={() => completeTask(task.id, task.completed)}
-            onDelete={() => deleteTask(task.id)}
-          />
-        ))}
-      </ul>
-    </div>
+    <section className="TaskList-container">
+      {error && onError()}
+      {loading  && onLoading()}
+      {!loading && !totalTasks && onEmptyTasks()}
+      {!!totalTasks && !searchedTasks.length && onEmptySearchResults()}
+
+      <ul>{(!loading && !error) && searchedTasks.map(renderFunc)}</ul>
+    </section>
   );
 }
 
-export {TasksList}
+export { TasksList };

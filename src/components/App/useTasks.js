@@ -7,6 +7,8 @@ function useTasks() {
     saveItem: saveTasks,
     loading,
     error,
+    sincronize: sincronizeTasks,
+    sincronizedItem: sincronizedTasks
   } = useLocalStorage("Tasks_v1", []);
 
   const [searchValue, setSearchValue] = useState("");
@@ -74,6 +76,7 @@ function useTasks() {
     openModal,
     setOpenModal,
     addTask,
+    sincronizeTasks,
   };
 }
 
